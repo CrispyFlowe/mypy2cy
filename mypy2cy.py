@@ -37,12 +37,6 @@ def type_params(*args: str) -> Callable[[Type[_T]], Type[_T]]:
         return cls
     return wrapper
 
-# def convert_type(template: str) -> Callable[[Type[_T]], Type[_T]]:
-#     def wrapper(cls: Type[_T]) -> Type[_T]:
-#         params = getattr(cls, "__type_params__", [])
-#         CUSTOM_TYPE_MAP[cls.__name__] = (template, params)
-#         return cls
-#     return wrapper
 
 def extract_convert_type_mappings(path: str) -> dict[str, tuple[str, list[str]]]:
     """Extract @convert_type and @type_params mappings from file."""
@@ -72,7 +66,6 @@ CUSTOM_TYPE_MAP: dict[str, tuple[str, list[str]]] = {}
 def map_type(pytype: str) -> str:
 
     base = pytype.strip().replace(" ", "")
-
     if base.isdigit():
         return base
     
