@@ -7,9 +7,7 @@ import re
 import sys
 from pathlib import Path
 import argparse
-from typing import (
-    Type, TypeVar, Callable, Union
-)
+from typing import Type, TypeVar, Callable, Union
 
 TYPE_MAP = {
     "int": "int",
